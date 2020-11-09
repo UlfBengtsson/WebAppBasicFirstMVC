@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <ol>
+            <li>@Html.ActionLink("Index","Index","Home")</li>
+            <li>@Html.ActionLink("Math table","Math","Home")</li>
+        </ol>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
