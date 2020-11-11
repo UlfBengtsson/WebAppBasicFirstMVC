@@ -1,0 +1,15 @@
+﻿@model Car
+
+@{
+    ViewBag.Title = "Create Car";
+}
+
+<form asp-action="Create" method="post">
+    <label asp-for="Brand"></label>
+    <input asp-for="Brand" />
+
+    <label asp-for="ModelName"></label>
+    <input asp-for="ModelName" />
+
+    <input type="submit" value="Create" />
+</form>

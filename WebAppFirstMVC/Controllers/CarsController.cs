@@ -10,10 +10,28 @@ namespace WebAppFirstMVC.Controllers
     public class CarsController : Controller
     {
         CarService _carService = new CarService();
+
+
         public IActionResult Index()
         {
-            ViewBag.CarList = _carService.All();
+            List<Car> cars = _carService.All();
+            return View(cars);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Car car)
+        {
+            _carService.Add(car.Brand, car.ModelName);
+
+            return RedirectToAction(nameof(Index));
+            //return RedirectToAction("Index");
         }
     }
 }

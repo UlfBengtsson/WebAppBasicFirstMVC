@@ -36,6 +36,11 @@ namespace WebAppFirstMVC
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "myCarsList",
+                    pattern: "Car-Listings/{action=Index}/{id?}",//compers vs url request from user({id?} is a optinal parameter and is therefore not requierd).
+                    defaults: new { controller = "Cars", action = "Index" });//set what controller and action to be used.
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");// {name of varibale} {name? the ? indecates that this veribale is optinal and dose not need to be pressent}
             });
@@ -43,9 +48,3 @@ namespace WebAppFirstMVC
         }
     }
 }
-/*
- endpoints.MapControllerRoute(
-    name: "myCars",
-    pattern: "Car-Listings/{id?}",//compers vs url request from user({id?} is a optinal parameter and is therefore not requierd).
-    defaults: new { controller = "Car", action = "Index" });//set what controller and action to be used.
-*/
