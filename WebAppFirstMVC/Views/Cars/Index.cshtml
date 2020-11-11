@@ -11,11 +11,15 @@
             </tr>
         </thead>
         <tbody>
-
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-
+            @if (ViewBag.CarList != null && ViewBag.CarList is List<Car>)
+            {
+                foreach (Car item in ViewBag.CarList as List<Car>)
+                {
+                    <tr>
+                        <td>@item.Brand</td>
+                        <td>@item.ModelName</td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
