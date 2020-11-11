@@ -16,7 +16,8 @@ namespace WebAppFirstMVC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc();//enable ous to us MVC pattan/controls
+            //services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,11 +35,15 @@ namespace WebAppFirstMVC
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
-                /*endpoints.MapControllerRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");*/
+                    pattern: "{controller=Home}/{action=Index}/{id?}");// {name of varibale}
             });
         }
     }
 }
+/*
+ endpoints.MapControllerRoute(
+                    name: "myCars",
+                    pattern: "Car-Listings/{id?}");//compers vs url request from user
+*/
