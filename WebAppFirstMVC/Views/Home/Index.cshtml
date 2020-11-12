@@ -23,4 +23,39 @@
         <h3>_ViewStart.cshtml</h3>
         <p>Were we can set what layout to use for our view instead of needing to set that per individual view.</p>
     </li>
+    <li>
+        <h3>BrowserLink</h3>
+        <p>Needs following steps to be taken (will assume .NET Core 3.1 MVC is used)</p>
+        <ol>
+            <li>
+                <h4>Install two NuGet packages in your project.</h4>
+                <ol>
+                    <li>
+                        <p>Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation</p>
+                        <p>controll its the right version 3.1.10</p>
+                    </li>
+                    <li>
+                        <p>Microsoft.VisualStudio.Web.BrowserLink</p>
+                        <p>controll its the right version 2.2.0</p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <h4>Add the following code in Startup.cs</h4>
+                <ul>
+                    <li>
+                        <p>Inside the ConfigureServices method.</p>
+                        <code>services.AddControllersWithViews().AddRazorRuntimeCompilation();</code>
+                        <p>Or</p>
+                        <code>services.AddMvc().AddRazorRuntimeCompilation();</code>
+                    </li>
+                    <li>
+                        <p>Inside the ConfigureServices method.</p>
+                        <p>and there inside the <code>if (env.IsDevelopment())</code></p>
+                        <code>app.UseBrowserLink();</code>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </li>
 </ul>
