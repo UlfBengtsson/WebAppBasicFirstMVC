@@ -11,9 +11,48 @@
     <li>
         <h3>Startup.ce</h3>
         <p>Were we config what frameworks like MVC and how/when to use them.</p>
-        <p>Were we config our diffrent Route´s.</p>
+        <p>Were we config our diffrent Route´s with "Endpoints"</p>
         <p>Were we config if we want to use files from the "wwwroot" folder and/or other places.</p>
     </li>
+
+    <li>
+        <h3>Endpoints</h3>
+        <p>can be seen as rules that the uri request needs to be pass and if it dose what controller and action that request is sent too.</p>
+        <p>normely there is 2-3 parameters:</p>
+        <ol>
+            <li>name: "nameOfRule"</li>
+            <li>pattern: "urlPatten"</li>
+            <li>defaults: new { Controller="NameOfController", Action="NameOfAction"}</li>
+        </ol>
+        <p>The defaults param migth not be needed if the pattern param uses varibles for controller and action with default valuses Ex: {controller=Home}/{action=Index}</p>
+    </li>
+
+    <li>
+        <h3>Controllers folder</h3>
+        <p>Here is were you place your Controller classes</p>
+        <p>Ex: HomeController</p>
+        <p>inside the controller is where you declare your Action methods</p>
+        <p>when you later refer to this controller in links for example, you will exclude the "Controller" part of the name and only type "Home"</p>
+        <p>same when you create the folder in Views for the view´s that belong to that controller by naming the folder just "Home"</p>
+    </li>
+
+    <li>
+        <h3>Action (Methods)</h3>
+        <p>are inside controllers and thay are the once that recives the users http request and were we preper the things needed to respond to the users request.</p>
+        <p>here is also were we call on service´s if thay are needed to make the response.</p>
+        <p>or set values in to a Model that will be sent to a view <code>return View(modelObject);</code>.</p>
+        <p>the <code>return View();</code> code will take the methods name as the name of the view it looks for.</p>
+        <p>if the view name is dose not match the method name you can send in a string as first parameter to it <code>return View("view_name");</code></p>
+    </li>
+
+    <li>
+        <h3>Views folder</h3>
+        <p>Here is were you store your diffrent view files and have folders with the name of the diffrent controllers and there views inside them.</p>
+        <p>in the root of this folder were normely have our config files for the view with the names: "_ViewImport.cshtml" &Aacute; "_ViewStart.cshtml"</p>
+        <p>here is also were we have the Shared folder were views that is shared between diffrent controllers is normely stored</p>
+        <p>but we also store our layout files here too.</p>
+    </li>  
+
     <li>
         <h3>_ViewImport.cshtml</h3>
         <p>Were we config what using statments.</p>
@@ -23,6 +62,7 @@
         <h3>_ViewStart.cshtml</h3>
         <p>Were we can set what layout to use for our view instead of needing to set that per individual view.</p>
     </li>
+
     <li>
         <h3>BrowserLink</h3>
         <p>Needs following steps to be taken (will assume .NET Core 3.1 MVC is used)</p>
