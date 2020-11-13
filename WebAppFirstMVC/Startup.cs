@@ -16,6 +16,7 @@ namespace WebAppFirstMVC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
             //services.AddControllersWithViews();
             services.AddMvc()//enable ous to use MVC
                 .AddRazorRuntimeCompilation();//needed if you want to use and use Browserlink & one more line of code in the Configure method below.
@@ -39,7 +40,7 @@ namespace WebAppFirstMVC
             app.UseDefaultFiles();//enables cliants to access html files in the wwwroot folder.
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Memo in Session</h1>
+
+<p>Good place to look is <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#session-state">Link to Microsoft Docs Session</a></p>
+
+<a asp-action="SetMemo">Click to save your memo in session here</a>
+
+<h3>Key parts</h3>
+<ul>
+    <li>
+        <p>Startup.cs</p>
+        <ul>
+            <li><p>ConfigureServices - <code>services.AddSession();</code></p></li>
+            <li><p>Configure - <code>app.UseSession();</code></p></li>
+        </ul>
+    </li>
+    <li>
+        <p>Controller</p>
+        <ul>
+            <li>Having using - <code>using Microsoft.AspNetCore.Http;</code></li>
+            <li>Getting value - <code>HttpContext.Session.GetString("KeyName");</code></li>
+            <li>Setting value - <code>HttpContext.Session.SetString("KeyName", "Value to store");</code></li>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Memo";
+}
+
+<h1>Memo</h1>
+
+@if (ViewBag.valueFromSession != null)
+{
+    <p>Current session contains: @ViewBag.valueFromSession</p>
+}
+else
+{
+    <p>No session value found.</p>
+}
+
+<form asp-action="SetMemo" method="post">
+    <label for="memo">Memo</label>
+    <input type="text" id="memo" name="cliantMemo" value="" />
+
+    <button type="submit">Save memo</button>
+</form>
+
+<a asp-action="Index">Back to memo index</a>
